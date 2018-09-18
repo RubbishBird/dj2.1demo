@@ -9,6 +9,7 @@
 {% block content %}
     <p>Topic:{{ topic }}</p>
     <p>Entries:</p>
+
     <ul>
     {% for entry in entries %}
         <li>
@@ -21,6 +22,9 @@
         </li>
     {% endfor %}
     </ul>
+    <p>
+        <a href="{% url 'learning_logs:new_entry' topic.id %}">add entry</a>
+    </p>
 {% endblock content %}
 
 </body>
