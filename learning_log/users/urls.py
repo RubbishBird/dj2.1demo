@@ -3,7 +3,7 @@
 from django.urls import path,include
 from django.contrib.auth.views import LoginView,LogoutView
 from . import views
-from atexit import register
+
 
 #修改模板路径
 LoginView.template_name = 'users/login.html'
@@ -16,5 +16,5 @@ urlpatterns = [
     #注销
     path('logout/',LogoutView.as_view(),name='logout'),
     #注册页面
-    path('register/',register,name='register')
+    path('register/',views.register,name='register')
 ]

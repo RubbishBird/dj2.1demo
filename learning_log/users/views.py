@@ -5,10 +5,12 @@ from django.urls import reverse
 from django.contrib.auth import logout,login,authenticate
 from django.contrib.auth.forms import UserCreationForm
 
+
 def logout_view(request):
     '''注销用户'''
     logout(request)
     return HttpResponseRedirect(reverse('learning_logs:index'))
+
 
 def register(request):
     '''注册新用户'''
@@ -23,7 +25,7 @@ def register(request):
             #让用户自动登录，在重定向到主页
             authenticated_user = authenticate(username=new_user.username,password=request.POST['password1'])
             login(request,authenticated_user)
-            return HttpResponseRedirect(reverse('logining_logs:index'))
+            return HttpResponseRedirect(reverse('learning_logs:index'))
 
     context = {'form':form}
     return render(request,'users/register.html',context)
