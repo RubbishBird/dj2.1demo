@@ -74,7 +74,6 @@ def edit_entry(request,entry_id):
     # 确认请求的主题属于当前用户
     if topic.owner != request.user:
         raise Http404
-
     if request.method != 'POST':
         #初次请求，使用当前条目填充表单
         form = EntryForm(instance=entry)
@@ -87,3 +86,4 @@ def edit_entry(request,entry_id):
 
     context = {'entry':entry,'topic':topic,'form':form}
     return render(request,'learning_logs/edit_entry.html',context)
+
